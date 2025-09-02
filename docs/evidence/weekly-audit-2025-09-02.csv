@@ -1,0 +1,14 @@
+Type,Name,Groups,AttachedPolicies
+USER,alice.finance,FinanceRead,
+USER,bob.hr,HRRead,
+USER,carol.devops,DevOpsLimited,
+USER,lokesh-admin,,AdministratorAccess;IAMUserChangePassword
+GROUP,DevOpsLimited,,MFARequired;DenyHighRisk;S3ReadProjectX;DevOpsLeastPriv
+GROUP,FinanceRead,,FinanceReadOnly;MFARequired;DenyHighRisk
+GROUP,HRRead,,
+GROUP,ReadOnlyGroup,,CustomS3ReadOnly;AIOpsReadOnlyAccess
+ROLE,AdminRole,,AdministratorAccess
+ROLE,AWSServiceRoleForSupport,,AWSSupportServiceRolePolicy
+ROLE,AWSServiceRoleForTrustedAdvisor,,AWSTrustedAdvisorServiceRolePolicy
+ROLE,CrossAccountReadOnly,,ReadOnlyAccess
+ROLE,EC2ReadRole,,ReadOnlyAccess

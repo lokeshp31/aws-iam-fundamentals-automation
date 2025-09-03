@@ -1,10 +1,19 @@
-# AWS IAM Fundamentals Automation (Least-Privilege, MFA, Audits)
+# AWS IAM Automation | Least-Privilege, MFA, Trust Policies & Audits
 
-**Purpose:** Professional, interview-ready IAM project for your GitHub/portfolio. Demonstrates user & group provisioning, least-privilege policies, trust policies for roles, MFA guardrails, policy simulation evidence, and automated weekly audit reporting.
+> Automating AWS IAM provisioning with least-privilege, MFA guardrails, and weekly compliance audits — ideal for IAM Analyst and Cloud Security roles.
 
-> Tip for screenshots: keep your AWS **Account ID masked** (e.g., blur all but the last 4 digits) and include a **timestamp**.
 
----
+## Live Repository
+Explore the full project with scripts, JSON policies, and evidence:
+[https://github.com/lokeshp31/aws-iam-fundamentals-automation](https://github.com/lokeshp31/aws-iam-fundamentals-automation)
+ 
+
+## Tech Stack
+- **AWS IAM** – User, group, role, and policy management
+- **AWS CLI** – Automation scripts for provisioning and audits
+- **Python 3** – Automated audit report generation
+- **JSON** – Custom IAM and trust policies
+
 
 ## Prerequisites
 - AWS account (use a **non-root**, sandbox **Admin** IAM user).
@@ -62,24 +71,6 @@
 9) **Generate audit report** (CSV written to `docs/evidence/weekly-audit-YYYY-MM-DD.csv`)
    ```bash
    python3 scripts/07_audit_report.py
-   ```
-
-> Add screenshots to `docs/screenshots/` (see the list below), commit, and push to GitHub.
-
----
-
-## What to Screenshot (for your portfolio)
-
-| # | Screenshot | Where | Why |
-|---|------------|------|-----|
-| 1 | Users/Groups overview | IAM Console → Users & Groups | Proves provisioning matches scripts |
-| 2 | Group attached policies | IAM Console → Groups → Policies tab | Shows least-privilege + guardrail |
-| 3 | Trust policies | IAM Console → Roles → Trust relationships | Demonstrates role-based access |
-| 4 | Policy Simulator results | Terminal or saved file | Evidence of Allow vs ExplicitDeny |
-| 5 | Audit CSV open | `docs/evidence/weekly-audit-YYYY-MM-DD.csv` opened in Excel | Shows governance reporting |
-| 6 | (Optional) MFA Deny | Terminal/API call failing without MFA (if configured) | Compliance evidence |
-
-Put images in `docs/screenshots/` and link them from this README.
 
 ---
 
@@ -111,20 +102,6 @@ aws-iam-fundamentals-automation/
     └── evidence/           # policy-sim & audit CSV output
 ```
 
----
 
-## Clean Up (important)
-Run the cleanup script to detach policies and delete lab resources:
-```bash
-bash scripts/90_cleanup.sh
-```
 
----
-
-## Talking Points for Interviews / README
-- Automated IAM provisioning (users, groups, roles) via AWS CLI & JSON policies.
-- Implemented least-privilege RBAC and explicit Deny for high-risk actions.
-- Created trust policies for EC2 and cross-account scenarios; attached managed ReadOnlyAccess.
-- Enforced MFA guardrail (deny all but list/identity calls if no MFA).
-- Validated access with the Policy Simulator and produced an auditable weekly access report.
 - All steps documented; evidence saved to repository.
